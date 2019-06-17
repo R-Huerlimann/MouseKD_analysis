@@ -15,12 +15,6 @@ qiime metadata tabulate \
   --m-input-file taxonomy.qza \
   --o-visualization taxonomy.qzv
 
-#qiime taxa barplot \
-#  --i-table dada2_table.qza \
-#  --i-taxonomy taxonomy.qza \
-#  --m-metadata-file metadata.tsv \
-#  --o-visualization taxa-bar-plots.qzv
-
 #first, export your data as a .biom
 qiime tools export \
   --input-path dada2_table.qza \
@@ -39,5 +33,5 @@ cat biom_export/taxonomy.tsv | sed 's|Feature ID|#OTUID|' | sed 's|Taxon|taxonom
 biom add-metadata -i biom_export/feature-table.biom -o biom_export/table-with-taxonomy.biom --observation-metadata-fp biom_export/biom_taxonomy.tsv --sc-separated taxonomy
 
 
-#based on info here:
+#based on information here:
 #https://forum.qiime2.org/t/is-there-any-way-to-summarize-taxa-plot-by-category/446/2?u=jairideout
